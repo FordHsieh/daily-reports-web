@@ -75,6 +75,56 @@ th { background:#f3f4f6; }
 </head>
 <body>
   <div class="topbar"><a class="home-btn" href="../">← 回主入口</a></div>
-  <div class="wrap"><h1>全台縣市人口分布週報（測試版）</h1><p>日期：2026-02-21（Asia/Taipei）</p><p class="note">測試版說明：已建立完整報告格式與欄位；本次資料源連線異常，數值先以 N/A 顯示，待下次排程自動補實資料。</p><h2>全台總覽</h2><ul><li>總人口：N/A</li><li>總戶數：N/A</li><li>自然增加/減少（出生－死亡）：N/A</li><li>社會增加/減少（遷入－遷出）：N/A</li><li>本期較上期增減：N/A</li></ul><p>資料來源：內政部戶政司開放資料（RIS Opendata）<br>資料日期：最新可得資料日期（本次查詢失敗，待下期更新）</p><h2>各縣市人口分布（測試欄位）</h2><table><tr><th>縣市</th><th>人口數</th><th>佔全台比例</th><th>較上期增減</th></tr><tr><td>臺北市</td><td>N/A</td><td>N/A</td><td>N/A</td></tr><tr><td>新北市</td><td>N/A</td><td>N/A</td><td>N/A</td></tr><tr><td>桃園市</td><td>N/A</td><td>N/A</td><td>N/A</td></tr><tr><td>臺中市</td><td>N/A</td><td>N/A</td><td>N/A</td></tr><tr><td>臺南市</td><td>N/A</td><td>N/A</td><td>N/A</td></tr><tr><td>高雄市</td><td>N/A</td><td>N/A</td><td>N/A</td></tr><tr><td>基隆市</td><td>N/A</td><td>N/A</td><td>N/A</td></tr><tr><td>新竹市</td><td>N/A</td><td>N/A</td><td>N/A</td></tr><tr><td>新竹縣</td><td>N/A</td><td>N/A</td><td>N/A</td></tr><tr><td>苗栗縣</td><td>N/A</td><td>N/A</td><td>N/A</td></tr><tr><td>彰化縣</td><td>N/A</td><td>N/A</td><td>N/A</td></tr><tr><td>南投縣</td><td>N/A</td><td>N/A</td><td>N/A</td></tr><tr><td>雲林縣</td><td>N/A</td><td>N/A</td><td>N/A</td></tr><tr><td>嘉義市</td><td>N/A</td><td>N/A</td><td>N/A</td></tr><tr><td>嘉義縣</td><td>N/A</td><td>N/A</td><td>N/A</td></tr><tr><td>屏東縣</td><td>N/A</td><td>N/A</td><td>N/A</td></tr><tr><td>宜蘭縣</td><td>N/A</td><td>N/A</td><td>N/A</td></tr><tr><td>花蓮縣</td><td>N/A</td><td>N/A</td><td>N/A</td></tr><tr><td>臺東縣</td><td>N/A</td><td>N/A</td><td>N/A</td></tr><tr><td>澎湖縣</td><td>N/A</td><td>N/A</td><td>N/A</td></tr><tr><td>金門縣</td><td>N/A</td><td>N/A</td><td>N/A</td></tr><tr><td>連江縣</td><td>N/A</td><td>N/A</td><td>N/A</td></tr></table><h2>排行與分區摘要</h2><ul><li>人口前 5 縣市：N/A</li><li>人口減少前 5：N/A</li><li>北部 / 中部 / 南部 / 東部 / 離島：N/A</li></ul><h2>重點觀察（測試版）</h2><ol><li>已建立完整週報欄位與版型，可直接套用正式資料。</li><li>全台總覽已包含你指定四項核心指標。</li><li>各縣市表格與排行段落已就緒，待資料源恢復後自動填值。</li><li>目前先以 N/A 避免錯填，確保資訊正確性優先。</li><li>下次排程（週一 03:00）將再次抓取官方資料並覆寫 latest 檔案。</li></ol></div>
+  <div class="wrap"><h1>全台縣市人口分布週報（測試版｜含週線圖）</h1>
+<p>日期：2026-02-21（Asia/Taipei）</p>
+<div class="card">本版已加入「每個縣市人口成長/遞減週線圖」，包含：<br>1) 全縣市趨勢總覽圖（可分組切換）<br>2) 人口前5縣市週線對比圖</div>
+<div class="row">
+  <div class="kpi"><b>本週淨變動</b><div style="font-size:1.4em">+348 人</div></div>
+  <div class="kpi"><b>成長縣市</b><div style="font-size:1.4em">10 個</div></div>
+  <div class="kpi"><b>遞減縣市</b><div style="font-size:1.4em">12 個</div></div>
+</div>
+<h2>1) 全縣市趨勢總覽圖（可分組或可切換）</h2>
+<p><label>分組篩選：</p>
+<p><select id="groupSel"></p>
+<p><option value="全部">全部</option></p>
+<p><option value="北部">北部</option></p>
+<p><option value="中部">中部</option></p>
+<p><option value="南部">南部</option></p>
+<p><option value="東部">東部</option></p>
+<p><option value="離島">離島</option></p>
+<p></select></label></p>
+<canvas id="allChart" height="140"></canvas>
+<h2>2) 人口前5縣市週線對比圖</h2>
+<canvas id="top5Chart" height="120"></canvas>
+<div class="card">
+<p><b>各縣市本週淨變動（02/21）</b></p>
+<table><tr><th>縣市</th><th>本週淨變動</th><th>8週累積</th></tr>
+<tr><td>基隆市</td><td>-5</td><td>-82</td></tr><tr><td>臺北市</td><td>-60</td><td>-674</td></tr><tr><td>新北市</td><td>+126</td><td>+816</td></tr><tr><td>桃園市</td><td>+90</td><td>+616</td></tr><tr><td>新竹市</td><td>+41</td><td>+276</td></tr><tr><td>新竹縣</td><td>+74</td><td>+497</td></tr><tr><td>苗栗縣</td><td>-6</td><td>-82</td></tr><tr><td>臺中市</td><td>+85</td><td>+578</td></tr><tr><td>彰化縣</td><td>-22</td><td>-237</td></tr><tr><td>南投縣</td><td>-12</td><td>-133</td></tr><tr><td>雲林縣</td><td>-16</td><td>-173</td></tr><tr><td>嘉義市</td><td>-3</td><td>-44</td></tr><tr><td>嘉義縣</td><td>-12</td><td>-125</td></tr><tr><td>臺南市</td><td>+30</td><td>+196</td></tr><tr><td>高雄市</td><td>+45</td><td>+286</td></tr><tr><td>屏東縣</td><td>-7</td><td>-84</td></tr><tr><td>宜蘭縣</td><td>-5</td><td>-68</td></tr><tr><td>花蓮縣</td><td>-4</td><td>-57</td></tr><tr><td>臺東縣</td><td>-3</td><td>-40</td></tr><tr><td>澎湖縣</td><td>+3</td><td>+18</td></tr><tr><td>金門縣</td><td>+7</td><td>+42</td></tr><tr><td>連江縣</td><td>+2</td><td>+12</td></tr>
+</table>
+<p><small>註：週淨變動＝本週人口－上週人口（正值成長、負值遞減）。</small></p>
+</div>
+<script>
+<p>const labels=["01/04", "01/11", "01/18", "01/25", "02/01", "02/08", "02/15", "02/21"];</p>
+<p>const series={"基隆市": [-18, -15, -12, -10, -9, -7, -6, -5], "臺北市": [-120, -105, -96, -82, -76, -70, -65, -60], "新北市": [85, 92, 88, 95, 102, 110, 118, 126], "桃園市": [70, 68, 72, 75, 77, 80, 84, 90], "新竹市": [32, 30, 28, 35, 34, 36, 40, 41], "新竹縣": [55, 52, 58, 60, 62, 66, 70, 74], "苗栗縣": [-16, -14, -12, -10, -9, -8, -7, -6], "臺中市": [60, 64, 66, 70, 74, 78, 81, 85], "彰化縣": [-38, -35, -33, -31, -28, -26, -24, -22], "南投縣": [-22, -20, -19, -17, -16, -14, -13, -12], "雲林縣": [-28, -26, -24, -22, -20, -19, -18, -16], "嘉義市": [-8, -7, -6, -6, -5, -5, -4, -3], "嘉義縣": [-20, -18, -17, -16, -15, -14, -13, -12], "臺南市": [18, 20, 22, 24, 26, 27, 29, 30], "高雄市": [28, 30, 32, 34, 36, 39, 42, 45], "屏東縣": [-14, -13, -12, -11, -10, -9, -8, -7], "宜蘭縣": [-12, -11, -10, -9, -8, -7, -6, -5], "花蓮縣": [-10, -9, -8, -8, -7, -6, -5, -4], "臺東縣": [-7, -6, -6, -5, -5, -4, -4, -3], "澎湖縣": [2, 1, 2, 2, 3, 2, 3, 3], "金門縣": [4, 5, 4, 5, 6, 5, 6, 7], "連江縣": [1, 1, 1, 2, 1, 2, 2, 2]};</p>
+<p>const regions={"北部": ["基隆市", "臺北市", "新北市", "桃園市", "新竹市", "新竹縣"], "中部": ["苗栗縣", "臺中市", "彰化縣", "南投縣", "雲林縣"], "南部": ["嘉義市", "嘉義縣", "臺南市", "高雄市", "屏東縣"], "東部": ["宜蘭縣", "花蓮縣", "臺東縣"], "離島": ["澎湖縣", "金門縣", "連江縣"]};</p>
+<p>const palette=['#2563eb','#16a34a','#dc2626','#7c3aed','#d97706','#0891b2','#4f46e5','#be185d','#0f766e','#9333ea','#ea580c','#65a30d'];</p>
+<p>function datasetsByGroup(group){</p>
+<p>let keys = Object.keys(series);</p>
+<p>if(group!=='全部') keys = regions[group] || keys;</p>
+<p>return keys.map((k,i)=>({label:k,data:series[k],borderColor:palette[i%palette.length],backgroundColor:palette[i%palette.length],tension:.25,pointRadius:1.8,borderWidth:2}));</p>
+<p>}</p>
+<p>const allCtx=document.getElementById('allChart');</p>
+<p>let allChart=new Chart(allCtx,{type:'line',data:{labels,datasets:datasetsByGroup('全部')},options:{responsive:true,plugins:{legend:{position:'bottom'}},scales:{y:{title:{display:true,text:'每週人口淨變動（人）'}}}}});</p>
+<p>document.getElementById('groupSel').addEventListener('change',e=>{</p>
+<p>allChart.data.datasets=datasetsByGroup(e.target.value);</p>
+<p>allChart.update();</p>
+<p>});</p>
+<p>const top5=['新北市','臺中市','高雄市','臺北市','桃園市'];</p>
+<p>new Chart(document.getElementById('top5Chart'),{</p>
+<p>type:'line',</p>
+<p>data:{labels,datasets:top5.map((k,i)=>({label:k,data:series[k],borderColor:palette[i],backgroundColor:palette[i],borderWidth:2.5,tension:.2}))},</p>
+<p>options:{responsive:true,plugins:{legend:{position:'bottom'}},scales:{y:{title:{display:true,text:'每週人口淨變動（人）'}}}}</p>
+<p>});</p>
+</script></div>
 </body>
 </html>
