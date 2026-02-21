@@ -108,23 +108,42 @@ th { background:#f3f4f6; }
 <p>const series={"基隆市": [-18, -15, -12, -10, -9, -7, -6, -5], "臺北市": [-120, -105, -96, -82, -76, -70, -65, -60], "新北市": [85, 92, 88, 95, 102, 110, 118, 126], "桃園市": [70, 68, 72, 75, 77, 80, 84, 90], "新竹市": [32, 30, 28, 35, 34, 36, 40, 41], "新竹縣": [55, 52, 58, 60, 62, 66, 70, 74], "苗栗縣": [-16, -14, -12, -10, -9, -8, -7, -6], "臺中市": [60, 64, 66, 70, 74, 78, 81, 85], "彰化縣": [-38, -35, -33, -31, -28, -26, -24, -22], "南投縣": [-22, -20, -19, -17, -16, -14, -13, -12], "雲林縣": [-28, -26, -24, -22, -20, -19, -18, -16], "嘉義市": [-8, -7, -6, -6, -5, -5, -4, -3], "嘉義縣": [-20, -18, -17, -16, -15, -14, -13, -12], "臺南市": [18, 20, 22, 24, 26, 27, 29, 30], "高雄市": [28, 30, 32, 34, 36, 39, 42, 45], "屏東縣": [-14, -13, -12, -11, -10, -9, -8, -7], "宜蘭縣": [-12, -11, -10, -9, -8, -7, -6, -5], "花蓮縣": [-10, -9, -8, -8, -7, -6, -5, -4], "臺東縣": [-7, -6, -6, -5, -5, -4, -4, -3], "澎湖縣": [2, 1, 2, 2, 3, 2, 3, 3], "金門縣": [4, 5, 4, 5, 6, 5, 6, 7], "連江縣": [1, 1, 1, 2, 1, 2, 2, 2]};</p>
 <p>const regions={"北部": ["基隆市", "臺北市", "新北市", "桃園市", "新竹市", "新竹縣"], "中部": ["苗栗縣", "臺中市", "彰化縣", "南投縣", "雲林縣"], "南部": ["嘉義市", "嘉義縣", "臺南市", "高雄市", "屏東縣"], "東部": ["宜蘭縣", "花蓮縣", "臺東縣"], "離島": ["澎湖縣", "金門縣", "連江縣"]};</p>
 <p>const palette=['#2563eb','#16a34a','#dc2626','#7c3aed','#d97706','#0891b2','#4f46e5','#be185d','#0f766e','#9333ea','#ea580c','#65a30d'];</p>
-<p>function datasetsByGroup(group){</p>
-<p>let keys = Object.keys(series);</p>
-<p>if(group!=='全部') keys = regions[group] || keys;</p>
-<p>return keys.map((k,i)=>({label:k,data:series[k],borderColor:palette[i%palette.length],backgroundColor:palette[i%palette.length],tension:.25,pointRadius:1.8,borderWidth:2}));</p>
+<p>function drawSimpleChart(canvasId, keys){</p>
+<p>const c=document.getElementById(canvasId); if(!c) return;</p>
+<p>const dpr=window.devicePixelRatio||1;</p>
+<p>const w=Math.max(c.clientWidth||900, 320), h=c.height||140;</p>
+<p>c.width=w*dpr; c.height=h*dpr; c.style.width=w+'px'; c.style.height=h+'px';</p>
+<p>const ctx=c.getContext('2d'); ctx.scale(dpr,dpr);</p>
+<p>ctx.clearRect(0,0,w,h);</p>
+<p>const left=36,right=10,top=10,bottom=24;</p>
+<p>const all=keys.flatMap(k=>series[k]||[]);</p>
+<p>const min=Math.min(...all), max=Math.max(...all);</p>
+<p>const span=(max-min)||1;</p>
+<p>const y=(v)=> top + (max-v)*(h-top-bottom)/span;</p>
+<p>const x=(i)=> left + i*(w-left-right)/(labels.length-1);</p>
+<p>ctx.strokeStyle='#cbd5e1'; ctx.lineWidth=1;</p>
+<p>ctx.beginPath(); ctx.moveTo(left,top); ctx.lineTo(left,h-bottom); ctx.lineTo(w-right,h-bottom); ctx.stroke();</p>
+<p>[min,0,max].forEach(v=>{ctx.strokeStyle='#e2e8f0';ctx.beginPath();ctx.moveTo(left,y(v));ctx.lineTo(w-right,y(v));ctx.stroke();});</p>
+<p>keys.forEach((k,idx)=>{</p>
+<p>const arr=series[k]; if(!arr) return;</p>
+<p>ctx.strokeStyle=palette[idx%palette.length]; ctx.lineWidth=1.8; ctx.beginPath();</p>
+<p>arr.forEach((v,i)=>{ if(i===0) ctx.moveTo(x(i),y(v)); else ctx.lineTo(x(i),y(v)); });</p>
+<p>ctx.stroke();</p>
+<p>});</p>
+<p>ctx.fillStyle='#64748b'; ctx.font='11px sans-serif';</p>
+<p>ctx.fillText(labels[0], left, h-6);</p>
+<p>ctx.fillText(labels[labels.length-1], w-46, h-6);</p>
 <p>}</p>
-<p>const allCtx=document.getElementById('allChart');</p>
-<p>let allChart=new Chart(allCtx,{type:'line',data:{labels,datasets:datasetsByGroup('全部')},options:{responsive:true,plugins:{legend:{position:'bottom'}},scales:{y:{title:{display:true,text:'每週人口淨變動（人）'}}}}});</p>
-<p>document.getElementById('groupSel').addEventListener('change',e=>{</p>
-<p>allChart.data.datasets=datasetsByGroup(e.target.value);</p>
-<p>allChart.update();</p>
-<p>});</p>
-<p>const top5=['新北市','臺中市','高雄市','臺北市','桃園市'];</p>
-<p>new Chart(document.getElementById('top5Chart'),{</p>
-<p>type:'line',</p>
-<p>data:{labels,datasets:top5.map((k,i)=>({label:k,data:series[k],borderColor:palette[i],backgroundColor:palette[i],borderWidth:2.5,tension:.2}))},</p>
-<p>options:{responsive:true,plugins:{legend:{position:'bottom'}},scales:{y:{title:{display:true,text:'每週人口淨變動（人）'}}}}</p>
-<p>});</p>
+<p>function renderAll(){</p>
+<p>const sel=document.getElementById('groupSel');</p>
+<p>const g=(sel&&sel.value)||'全部';</p>
+<p>const keys = g==='全部' ? Object.keys(series) : (regions[g]||Object.keys(series));</p>
+<p>drawSimpleChart('allChart', keys);</p>
+<p>drawSimpleChart('top5Chart', ['新北市','臺中市','高雄市','臺北市','桃園市']);</p>
+<p>}</p>
+<p>document.getElementById('groupSel')?.addEventListener('change', renderAll);</p>
+<p>window.addEventListener('resize', renderAll);</p>
+<p>renderAll();</p>
 </script></div>
 </body>
 </html>
