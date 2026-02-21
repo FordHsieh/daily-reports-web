@@ -3,10 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>每日晨報</title>
-  <meta http-equiv="refresh" content="0; url=./latest-us-weather.html" />
+  <title>阿村報告站</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang TC', sans-serif; margin:0; background:#f5f7fb; color:#1f2937; }
+    .wrap { max-width:860px; margin:24px auto; background:#fff; border-radius:14px; padding:20px; box-shadow:0 8px 24px rgba(15,23,42,.08); }
+    h1 { margin-top:0; }
+    .grid { display:grid; gap:12px; }
+    a.card { display:block; padding:14px 16px; border-radius:12px; text-decoration:none; background:#eef2ff; color:#1e3a8a; font-weight:700; }
+  </style>
 </head>
 <body>
-  <p>正在前往最新晨報… <a href="./latest-us-weather.html">點我進入</a></p>
+  <div class="wrap">
+    <h1>阿村報告站</h1>
+    <div class="grid">
+      <a class="card" href="./morning/latest.html">🌅 晨報（美股＋天氣）</a>
+      <a class="card" href="./premarket/latest.html">📈 盤前報告</a>
+      <a class="card" href="./midday/latest.html">🕑 午間報告</a>
+    </div>
+  </div>
 </body>
 </html>
