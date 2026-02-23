@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>每日報告｜短線模擬</title>
+  <style>
+:root {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --h1-bg: #1e3a8a;
+  --h2-bg: #0f766e;
+  --h3-bg: #7c3aed;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang TC', 'Noto Sans TC', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 16px;
+  line-height: 1.7;
+}
+.wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  background: var(--card);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, .08);
+}
+h1, h2, h3 { margin: 1em 0 .55em; color: #fff; border-radius: 10px; padding: .45em .7em; }
+h1 { background: var(--h1-bg); font-size: 1.42rem; }
+h2 { background: var(--h2-bg); font-size: 1.2rem; }
+h3 { background: var(--h3-bg); font-size: 1.05rem; }
+p { margin: .45em 0; }
+a { color: #2563eb; word-break: break-all; }
+ol.news-list { padding-left: 1.25em; margin: .3em 0 1em; }
+ol.news-list > li { margin: .5em 0 1em; }
+.item-title { font-weight: 700; margin-bottom: .35em; }
+.item-meta { margin-left: .25em; color: #111827; }
+.stock-card { border:1px solid #e5e7eb; border-radius:12px; padding:10px 12px; margin:10px 0 14px; background:#fafafa; }
+.stock-card h3 { margin-top:0; }
+.kpi-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:10px 0 6px; }
+.kpi-box { border:1px solid #d1d5db; background:#fff; border-radius:10px; padding:8px 10px; }
+.kpi-title { font-size:.82rem; color:#6b7280; margin-bottom:3px; }
+.kpi-value { font-weight:700; color:#111827; }
+table { width:100%; border-collapse:collapse; margin:8px 0 14px; font-size:.95rem; }
+th, td { border:1px solid #e5e7eb; padding:6px 8px; }
+th { background:#f3f4f6; }
+.wx-map { margin: .8em 0 1.1em; padding: .8em; border: 1px solid #dbeafe; border-radius: 12px; background: #f8fbff; }
+.wx-grid { display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; align-items: stretch; }
+.wx-card { background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:8px 10px; font-size:.92rem; }
+.wx-card b { display:block; color:#0f172a; margin-bottom:4px; }
+.wx-rain-high { background:#fee2e2; border-color:#fecaca; }
+.wx-rain-mid { background:#fef3c7; border-color:#fde68a; }
+.wx-rain-low { background:#dcfce7; border-color:#bbf7d0; }
+.wx-north { grid-column:2; }
+.wx-central { grid-column:2; }
+.wx-south { grid-column:2; }
+.wx-east { grid-column:3; grid-row:2 / span 2; }
+.wx-island { grid-column:1; grid-row:2 / span 2; }
+@media (max-width: 640px) {
+  body { padding: 10px; }
+  .wrap { padding: 12px; border-radius: 10px; }
+  h1 { font-size: 1.2rem; }
+  h2 { font-size: 1.05rem; }
+  h3 { font-size: 0.95rem; }
+}
+
+  .topbar { max-width:980px; margin:0 auto 10px; }
+  .home-btn { display:inline-block; text-decoration:none; background:#111827; color:#fff; padding:8px 12px; border-radius:10px; font-weight:700; }
+  </style>
+</head>
+<body>
+  <div class="topbar"><a class="home-btn" href="../">← 回主入口</a></div>
+  <div class="wrap"><h1>權值股短線模擬（5日）｜2026-02-23</h1>
+<p>A) 今日首選（1檔）</p>
+<ul>
+<li>股票代號/名稱：2330 台積電</li>
+<li>模擬買進區間：1920 ~ 1935 TWD</li>
+<li>失效價（停損）：1872.1 TWD（-3%）</li>
+<li>目標價（停利）：2045.8 TWD（+6%）</li>
+<li>持有天數上限：5 個交易日</li>
+<li>入選理由：</li>
+</ul>
+<ol class="news-list">
+<li>
+<div class='item-title'>今日收盤 1930，單日漲幅約 +0.78%，維持多方結構但未出現極端長紅。</div>
+</li>
+<li>
+<div class='item-title'>近 5 日報酬約 +9.35%，短線動能明顯，且成交量充足，流動性佳。</div>
+</li>
+<li>
+<div class='item-title'>收盤價高於近 20 日均價（約 1809），趨勢面偏強。</div>
+</li>
+<li>
+<div class='item-title'>在權值股中兼具趨勢與穩定性，較適合 5 日內短線模擬。</div>
+<div class='item-meta'>B) 模擬持倉追蹤</div>
+<div class='item-meta'>• 是否已開倉：是</div>
+<div class='item-meta'>• 進場價：1930.0</div>
+<div class='item-meta'>• 現價：1930.0</div>
+<div class='item-meta'>• 未實現損益：0 TWD / 0.00%</div>
+<div class='item-meta'>• 已持有天數：1 / 5</div>
+<div class='item-meta'>• 目前判斷：續抱（尚未觸發停損/停利）</div>
+<div class='item-meta'>C) 一句總結</div>
+<div class='item-meta'>• 今天模擬策略目前是「持平」。</div>
+<div class='item-meta'>D) 免責</div>
+<div class='item-meta'>• 這是模擬追蹤，不構成投資建議。</div>
+</li>
+</ol></div>
+</body>
+</html>
