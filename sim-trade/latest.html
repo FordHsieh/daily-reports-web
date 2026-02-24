@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>每日報告｜短線模擬（更新：2026-02-24 16:15｜下次：2026-02-25 09:20）</title>
+  <title>每日報告｜短線模擬（更新：2026-02-24 16:19｜下次：2026-02-25 09:20）</title>
   <style>
 :root {
   --bg: #f5f7fb;
@@ -51,6 +51,10 @@ th, td { border:1px solid #e5e7eb; padding:6px 8px; }
 th { background:#f3f4f6; }
 .up-row td { background:#fee2e2; }
 .down-row td { background:#dcfce7; }
+.excel-like { border-collapse:collapse; width:100%; table-layout:fixed; }
+.excel-like th, .excel-like td { border:1px solid #cbd5e1; padding:8px 10px; }
+.excel-like th { background:#e2e8f0; color:#0f172a; font-weight:700; }
+.excel-like tbody tr:nth-child(even) td { background:#f8fafc; }
 .wx-map { margin: .8em 0 1.1em; padding: .8em; border: 1px solid #dbeafe; border-radius: 12px; background: #f8fbff; }
 .wx-grid { display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; align-items: stretch; }
 .wx-card { background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:8px 10px; font-size:.92rem; }
@@ -96,13 +100,16 @@ th { background:#f3f4f6; }
 <li>目前判斷：續抱（未觸發停損 1872.1 / 停利 2045.8）</li>
 </ul>
 <h2>C) 五日收盤追蹤表（固定第1~5交易日）</h2>
-<p>| 交易日 | 日期 | 收盤價 (TWD) | 日漲跌% | 相對進場報酬% | 狀態 |</p>
-<p>|---|---|---:|---:|---:|---|</p>
-<p>| 第1交易日 | 2026-02-23 | 1900.0 | N/A | -1.55% | 已完成 |</p>
-<p>| 第2交易日 | 2026-02-24 | 1965.0 | +3.42% | +1.81% | 今日 |</p>
-<p>| 第3交易日 | N/A | N/A | N/A | N/A | 待更新 |</p>
-<p>| 第4交易日 | N/A | N/A | N/A | N/A | 待更新 |</p>
-<p>| 第5交易日 | N/A | N/A | N/A | N/A | 待更新 |</p>
+<table class="excel-like">
+  <thead><tr><th>交易日</th><th>日期</th><th>收盤價 (TWD)</th><th>日漲跌%</th><th>相對進場報酬%</th><th>狀態</th></tr></thead>
+  <tbody>
+    <tr><td>第1交易日</td><td>2026-02-23</td><td>1900.0</td><td>N/A</td><td>-1.55%</td><td>已完成</td></tr>
+    <tr><td>第2交易日</td><td>2026-02-24</td><td>1965.0</td><td>+3.42%</td><td>+1.81%</td><td>今日</td></tr>
+    <tr><td>第3交易日</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>待更新</td></tr>
+    <tr><td>第4交易日</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>待更新</td></tr>
+    <tr><td>第5交易日</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>待更新</td></tr>
+  </tbody>
+</table>
 <h2>D) 一句總結</h2>
 <ul>
 <li>今天模擬策略目前是「領先」。</li>
