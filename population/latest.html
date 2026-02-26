@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>每日報告｜人口分布（更新：2026-02-21 22:31｜下次：2026-03-02 03:00）</title>
+  <title>每日報告｜人口分布（更新：2026-02-26 23:14｜下次：2026-03-02 03:00）</title>
   <style>
 :root {
   --bg: #f5f7fb;
@@ -165,6 +165,23 @@ th { background:#f3f4f6; }
 <p>document.getElementById('groupSel')?.addEventListener('change', renderAll);</p>
 <p>window.addEventListener('resize', renderAll);</p>
 <p>renderAll();</p>
-</script></div>
+</script>
+<p><section></p>
+  <h2>4) 全台房屋交易量（月）（測試版）</h2>
+  <p><strong>新增欄位：</strong>每月房屋交易量（買賣移轉棟數）整理。此段為版型測試，後續會改為每月自動更新正式數值。</p>
+  <table class="excel-like">
+    <thead><tr><th>縣市</th><th>月交易量（棟）</th><th>月增減</th><th>備註</th></tr></thead>
+    <tbody>
+      <tr><td>新北市</td><td>5,820</td><td>+3.2%</td><td>測試資料</td></tr>
+      <tr><td>臺中市</td><td>4,910</td><td>+1.7%</td><td>測試資料</td></tr>
+      <tr><td>桃園市</td><td>4,120</td><td>+2.1%</td><td>測試資料</td></tr>
+      <tr><td>高雄市</td><td>3,980</td><td>-0.8%</td><td>測試資料</td></tr>
+      <tr><td>臺北市</td><td>3,560</td><td>-1.4%</td><td>測試資料</td></tr>
+      <tr><td>其餘縣市合計</td><td>14,230</td><td>+0.6%</td><td>測試資料</td></tr>
+      <tr><td><strong>全台合計</strong></td><td><strong>36,620</strong></td><td><strong>+0.9%</strong></td><td><strong>測試資料</strong></td></tr>
+    </tbody>
+  </table>
+  <p>資料狀態：測試版（版面與流程驗證）。正式版將改為「每月自動抓取並更新各縣市交易量」。</p>
+<p></section></p></div>
 </body>
 </html>
